@@ -1,23 +1,25 @@
-<!-- resources/views/contact.blade.php -->
-@extends('layouts.app') <!-- Extending the layout with Bootstrap -->
-
+@extends('auth.layouts')
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <form method="POST" action="{{ route('send.email') }}" class="mt-5">
-                    @csrf
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" name="email" id="email" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message:</label>
-                        <textarea name="message" id="message" class="form-control" rows="4"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+    <div class="container-fluid">
+        <form method="POST" action="{{ route('send.email') }}" class="mt-5">
+            @csrf
+            <div class="row mb-3">
+                <div class="col text-end">
+                    <button type="submit" class="btn btn-sm btn-outline-primary">Submit</button>
+                </div>
             </div>
-        </div>
+            <div class="row mb-2">
+                <div class="col">
+                    <div class="input-group mb-2">
+                        <span class="input-group-text" style="width: 200px" id="basic-addon3">EMAIL</span>
+                        <input type="text" class="form-control" id="basic-url" name="email">
+                    </div>
+                    <div class="input-group mb-2">
+                        <span class="input-group-text" style="width: 200px" id="basic-addon3">Message</span>
+                        <textarea class="form-control" id="basic-url" name="message" rows="4"></textarea>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
 @endsection
