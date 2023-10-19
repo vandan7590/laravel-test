@@ -17,7 +17,6 @@ class EmailTestController extends Controller
         $email = $request->input('email');
         $message = $request->input('message');
 
-        // Send the email
         Mail::send('test.email-view', ['messages' => $message], function ($mail) use ($email) {
             $mail->from('no-reply@cybernetworks.net.au', 'Cybernetworks');
             $mail->to($email)->subject('Testing Email');
